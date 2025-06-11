@@ -1,0 +1,71 @@
+/* Table styling (Bootstrap 5 uses `table-sm` and spacing utilities) */
+td {
+  font-size: 0.875rem; /* Bootstrap small = 14px */
+}
+table {
+  font-size: 0.875rem;
+}
+
+/* Spinner Loader */
+#loader {
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+  position: fixed;
+  inset: 0; /* ganti top/left/width/height jadi satu */
+  background: #fff;
+  z-index: 1055; /* Sesuaikan dengan Bootstrap modal: default z-index 1055 */
+}
+
+#loader.fadeOut {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bs-primary); /* pakai var dari Bootstrap */
+  border-radius: 50%;
+  animation: sk-scaleout 1s infinite ease-in-out;
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Page Loading */
+.page-loading {
+  position: fixed;
+  inset: 0;
+  background-color: #fff;
+  z-index: 1055;
+  text-align: center;
+}
+
+.page-loading > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.page-loading > span {
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 1rem;
+  color: var(--bs-secondary); /* pakai warna Bootstrap */
+  text-decoration: underline;
+  cursor: pointer;
+}

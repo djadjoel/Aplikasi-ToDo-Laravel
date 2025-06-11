@@ -1,0 +1,14 @@
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+php artisan cache:clear
+php artisan optimize:clear
+php artisan optimize
+
+//dengan method index, create, store, dll
+php artisan make:controller Admin/DashboardController --resource
+
+public function register(Request $request)
+{
+  dd('Masuk ke controller', $request->all());
+}
