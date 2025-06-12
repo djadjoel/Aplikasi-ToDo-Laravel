@@ -26,9 +26,14 @@
   });
 </script>
 <script>
+document.addEventListener('DOMContentLoaded', function () {
     const toastEl = document.getElementById('successToast');
-    const toast = new bootstrap.Toast(toastEl);
-    toast.show();
+    if (toastEl) {
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
+    }
+});
+
 </script>
 <script>
   window.addEventListener('load', function () {
@@ -42,20 +47,16 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('add-task-form');
+    if (!form) return;
 
-    // Tambahkan event listener ke form
     form.addEventListener('submit', function (event) {
-        // Jika form tidak valid, batalkan submit dan tampilkan feedback
         if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
         }
-
-        // Tambahkan class Bootstrap untuk validasi
         form.classList.add('was-validated');
     });
 
-    // Tambahkan validasi real-time saat mengetik
     const inputs = form.querySelectorAll('input[required]');
     inputs.forEach(function (input) {
         input.addEventListener('input', function () {
@@ -69,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -133,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
-<script src="{{ asset('plugins/chart/chart.min.js') }}"></script>
+<script src="{{ secure_asset('plugins/chart/chart.min.js') }}"></script>
 <script>
     const ctx = document.getElementById('taskStatusChart').getContext('2d');
     const taskStatusChart = new Chart(ctx, {
