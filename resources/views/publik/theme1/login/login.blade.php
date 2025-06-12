@@ -15,7 +15,7 @@
     <input type="email" id="email" class="form-control" placeholder="Email" autocomplete="username">
   </div>
   <div class="mb-3">
-    <input id="password" type="password" class="form-control" placeholder="Password" autocomplete="current-password">
+    <input id="password" name="password" class="form-control" type="password" placeholder="Password" autocomplete="current-password">
   </div>
   <button class="btn btn-primary" onclick="login()">Login</button>
 

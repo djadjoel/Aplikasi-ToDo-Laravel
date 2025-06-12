@@ -8,19 +8,22 @@
     <h2 class="mb-3">Login</h2>
     <form onsubmit="event.preventDefault(); login();">
     <div class="mb-3">
-        <input id="email" class="form-control" placeholder="Email">
+        <input id="email" name="email" class="form-control" placeholder="Email" autocomplete="username">
     </div>
     <div class="mb-3">
-        <input id="password" type="password" class="form-control" placeholder="Password" autocomplete="current-password">
+        <input id="password" name="password" class="form-control" type="password" placeholder="Password" autocomplete="current-password">
     </div>
     <button onclick="login()" class="btn btn-primary">Login</button>
     <p id="error" class="text-danger mt-3"></p>
 </form>
+<script>
+  const BASE_API = "{{ rtrim(url('/api'), '/api') }}";
+</script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="{{ secure_asset('js/login.js') }}"></script>
-    <script>
+    <!-- <script>
     const BASE_API = "{{ url('/api') }}";
-</script>
+</script> -->
 
 </body>
 </html>

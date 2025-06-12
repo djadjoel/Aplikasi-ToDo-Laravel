@@ -32,9 +32,9 @@
 <ul id="todoList" class="list-group"></ul>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
   const BASE_API = "{{ rtrim(url('/'), '/') }}";
 </script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{ secure_asset('js/todo.js') }}"></script>
 @endsection
