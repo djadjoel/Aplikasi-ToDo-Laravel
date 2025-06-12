@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }}</title>
-    <link rel="icon" href="{{ asset('gambar/favicon/favicon.ico') }}">
+    <link rel="icon" href="{{ secure_asset('gambar/favicon/favicon.ico') }}">
     <link href="{{ secure_asset('plugins/bootstrap533/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('plugins/bootstrap-icons/font/bootstrap-icons.min.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('templates/architect4/main.css') }}" rel="stylesheet">

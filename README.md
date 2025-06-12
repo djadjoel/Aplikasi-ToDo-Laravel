@@ -2,6 +2,9 @@
 
 Aplikasi manajemen tugas (To-Do List) berbasis Laravel dengan autentikasi pengguna, verifikasi email, dashboard admin, dan RESTful API. Dibangun menggunakan Laravel 12, Bootstrap 5.3, dan Axios.
 
+## Demo
+https://aplikasi-todo-laravel-production.up.railway.app/login
+
 ## 🚀 Fitur Utama
 
 - ✅ CRUD tugas dengan filter selesai/belum
@@ -14,58 +17,13 @@ Aplikasi manajemen tugas (To-Do List) berbasis Laravel dengan autentikasi penggu
 
 ---
 
-## ⚙️ Instruksi Setup Project
+## ⚙️ Instruksi Penggunaan
 
-### 1. Clone Repository
-```bash
-git clone https://github.com/username/nama-repo.git
-cd nama-repo
-<<<<<<< HEAD
+### 1. Login Akses
+- Frontend Login : https://aplikasi-todo-laravel-production.up.railway.app/login
+- Backend Login Admin: https://aplikasi-todo-laravel-production.up.railway.app/default/login
 
-### 2. Clone Repository
-- composer install
-- npm install && npm run build
-
-### 1. Clone Repository
-=======
-```
-
-### 2. Clone Repository
-```bash
-composer install
-npm install && npm run build
-```
-
-### 3. Salin File Environment
-```bash
-cp .env.example .env
-```
-
-### 4. Generate Key & Setup DB
-```bash
-php artisan key:generate
-```
-Lalu buka file .env dan atur konfigurasi database Anda:
-- DB_DATABASE=todo_app
-- DB_USERNAME=root
-- DB_PASSWORD=
-
-### 5. Migrasi & Seed Database
-```bash
-php artisan migrate
-php artisan db:seed
-```
-
-### 6. Jalankan Aplikasi
-```bash
-php artisan serve
-```
-
-### 7. Akses
-- Frontend: http://localhost:8000
-- Login Admin: http://localhost:8000/default/login
-
-### 8. Alur Penggunaan
+### 2. Alur Penggunaan
 - Buat akun melalui login admin
 - Kelola tugas baik di frontend dan backend 
 
@@ -107,4 +65,3 @@ public/
 
 ## Lisensi
 Aplikasi ini dibuat untuk tujuan pembelajaran. Silakan gunakan atau modifikasi sesuai kebutuhan.
->>>>>>> 577e930e06327665cd66b85a7e46bda62ef38dd1
