@@ -57,6 +57,10 @@ php artisan serve
 - Frontend: http://localhost:8000
 - Login Admin: http://localhost:8000/default/login
 
+### 8. Alur Penggunaan
+- Buat akun melalui login admin
+- Kelola tugas baik di frontend dan backend 
+
 ## Struktur Proyek
 ```bash
 app/
