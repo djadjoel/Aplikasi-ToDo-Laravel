@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->boolean('is_completed')->default(false);
+            $table->string('judul');
+            $table->text('deskripsi')->nullable();
+            $table->enum('is_done', ['done', 'undone'])->default('undone');
             $table->timestamps();
         });
     }

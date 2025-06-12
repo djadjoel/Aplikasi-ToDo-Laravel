@@ -1,5 +1,5 @@
-<script src="{{ asset('plugins/bootstrap533/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('templates/architect4/main.js') }}"></script>
+<script src="{{ secure_asset('plugins/bootstrap533/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ secure_asset('templates/architect4/main.js') }}"></script>
 <script>
   function togglePassword(inputId, button) {
     const input = document.getElementById(inputId);

@@ -36,5 +36,5 @@
 <script>
   const BASE_API = "{{ url('') }}";
 </script>
-<script src="{{ asset('js/todo.js') }}"></script>
+<script src="{{ secure_asset('js/todo.js') }}"></script>
 @endsection
