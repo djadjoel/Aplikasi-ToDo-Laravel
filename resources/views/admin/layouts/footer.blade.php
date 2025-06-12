@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
-<script src="{{ secure_asset('plugins/chart/chart.min.js') }}"></script>
+<script src="{{ secure_asset('plugins/chart/chart.js') }}"></script>
 <script>
     const ctx = document.getElementById('taskStatusChart').getContext('2d');
     const taskStatusChart = new Chart(ctx, {
