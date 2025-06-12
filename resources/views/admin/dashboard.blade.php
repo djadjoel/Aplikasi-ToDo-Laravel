@@ -1,4 +1,3 @@
-<!-- resources/views/admin/dashboard.blade.php -->
 @extends('admin.layouts.app')
 
 @section('content')
