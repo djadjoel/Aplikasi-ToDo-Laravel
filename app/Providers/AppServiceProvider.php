@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\ManajemenMenu as Menu;
 use App\Models\Admin\ManajemenModul as Modul;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (config('app.env') !== 'local') {
+            URL::forceScheme('https');
+        }
         View::composer('*', function ($view) {
             $view->with('publicMenus', Menu::where('isActive', '1')->orderBy('order')->get());
 
