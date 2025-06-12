@@ -51,6 +51,9 @@
             @endphp
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Menu Dashboard</li>
+                @php
+    dd($dashboardModuls->toArray());
+@endphp
                 @php renderMenuItems($dashboardModuls->whereNull('parent_id')); @endphp
             </ul>
         </div>

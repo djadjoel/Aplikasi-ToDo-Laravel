@@ -5,6 +5,10 @@ Aplikasi manajemen tugas (To-Do List) berbasis Laravel dengan autentikasi penggu
 ## Demo
 https://aplikasi-todo-laravel-production.up.railway.app/login
 
+## Data login
+- Username: test@example.com
+- Password: password
+
 ## 🚀 Fitur Utama
 
 - ✅ CRUD tugas dengan filter selesai/belum
