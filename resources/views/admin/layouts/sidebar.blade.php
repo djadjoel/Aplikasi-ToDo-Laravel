@@ -29,7 +29,7 @@
             function renderMenuItems($moduls, $level = 1)
             {
                 foreach ($moduls as $modul) {
-                    $urlm = route($modul->url);
+                    $urlm = url($modul->url);
                     $active = isActive($modul) ? 'mm-active' : '';
                     echo '<li class="' . $active . '">';
                     echo '<a href="' .  ($urlm ?? '#') . '" class="' . $active . '">';

@@ -37,7 +37,6 @@ class AppServiceProvider extends ServiceProvider
                         $q->whereNull('role')
                         ->orWhere('role', 'like', "%$role%");
                     })
-                    ->whereNull('parent_id')
                     ->with('children.children.children')
                     ->orderBy('order')
                     ->get();
