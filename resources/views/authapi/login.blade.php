@@ -17,13 +17,9 @@
     <p id="error" class="text-danger mt-3"></p>
 </form>
 <script>
-  const BASE_API = "{{ rtrim(url('/api'), '/api') }}";
+  const BASE_API = 'https://aplikasi-todo-laravel-production.up.railway.app/api';
 </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="{{ secure_asset('js/login.js') }}"></script>
-    <!-- <script>
-    const BASE_API = "{{ url('/api') }}";
-</script> -->
-
 </body>
 </html>

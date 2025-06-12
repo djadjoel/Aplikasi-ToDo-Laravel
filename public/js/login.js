@@ -1,4 +1,3 @@
-const BASE_API = 'https://aplikasi-todo-laravel-production.up.railway.app';
 console.log("Login to:", BASE_API + '/login');
 function login() {
     const email = document.getElementById('email').value;
