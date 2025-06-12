@@ -6,7 +6,7 @@
         <div class="alert alert-success">{{ session('status') }}</div>
     @endif
     <input type="hidden" name="token" value="{{ $token }}" />
-    <img class="mb-4" src="{{ asset('gambar/logo/150x150.jpg') }}" alt=baniakoy.com" width="72" height="57">
+    <img class="mb-4" src="{{ secure_asset('gambar/logo/150x150.jpg') }}" alt=baniakoy.com" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Reset Password</h1>
     <div class="form-floating">
         <input type="email" name="email" value="{{ old('email') }}"class="form-control" id="floatingInput" placeholder="name@example.com" required autofocus>

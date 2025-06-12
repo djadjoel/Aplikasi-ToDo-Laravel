@@ -6,12 +6,12 @@
     <meta name="description" content="@yield('description', 'Auth Page')">
     <meta name="author" content="baniakoy.com">
     <title>@yield('title', 'Auth')</title>
-    <script src="{{ asset('plugins/bootstrap533/color-modes.js') }}"></script>
-    <link rel="icon" href="{{ asset('gambar/favicon/favicon.ico') }}">
-    <link href="{{ asset('plugins/bootstrap533/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/bootstrap-icons/font/bootstrap-icons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/bootstrap533/color-modes.css') }}" rel="stylesheet">
-    <link href="{{ asset('templates/sign-in/sign-in.css') }}" rel="stylesheet">
+    <script src="{{ secure_asset('plugins/bootstrap533/color-modes.js') }}"></script>
+    <link rel="icon" href="{{ secure_asset('gambar/favicon/favicon.ico') }}">
+    <link href="{{ secure_asset('plugins/bootstrap533/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('plugins/bootstrap-icons/font/bootstrap-icons.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('plugins/bootstrap533/color-modes.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('templates/sign-in/sign-in.css') }}" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -60,7 +60,7 @@
         @yield('content')
     </main>
 
-    <script src="{{ asset('plugins/bootstrap533/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/bootstrap533/bootstrap.bundle.min.js') }}"></script>
     <script>
         function togglePassword(inputId, button) {
             const input = document.getElementById(inputId);

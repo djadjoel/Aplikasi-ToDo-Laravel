@@ -2,7 +2,7 @@
 @section('content')
 <form method="POST" action="{{ url('default/register') }}">
     @csrf
-    <img class="mb-4" src="{{ asset('gambar/logo/150x150.jpg') }}" alt=baniakoy.com" width="72" height="57">
+    <img class="mb-4" src="{{ secure_asset('gambar/logo/150x150.jpg') }}" alt=baniakoy.com" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Register</h1>
     <div class="form-floating">
         <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="floatingNama" placeholder="Nama" required autofocus>
