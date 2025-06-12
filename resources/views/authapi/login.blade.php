@@ -17,7 +17,7 @@
     <p id="error" class="text-danger mt-3"></p>
 </form>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="{{ asset('js/login.js') }}"></script>
+    <script src="{{ secure_asset('js/login.js') }}"></script>
     <script>
     const BASE_API = "{{ url('/api') }}";
 </script>

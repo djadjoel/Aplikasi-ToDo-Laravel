@@ -12,10 +12,10 @@
 <h2 class="mb-4">Login</h2>
 
   <div class="mb-3">
-    <input type="email" id="email" class="form-control" placeholder="Email">
+    <input type="email" id="email" class="form-control" placeholder="Email" autocomplete="username">
   </div>
   <div class="mb-3">
-    <input type="password" id="password" class="form-control" placeholder="Password">
+    <input id="password" type="password" class="form-control" placeholder="Password" autocomplete="current-password">
   </div>
   <button class="btn btn-primary" onclick="login()">Login</button>
 
