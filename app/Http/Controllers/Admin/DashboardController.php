@@ -25,22 +25,22 @@ class DashboardController extends Controller
         $quote = 'Gagal memuat kutipan.';
         $author = '';
 
-        // Ambil kutipan motivasi
         try {
             $response = Http::get('https://zenquotes.io/api/random');
-            if ($response->successful()) {
-                $quoteData = $response->json()[0];
-                $quote = $quoteData['q'];
-                $author = $quoteData['a'];
+            $json = $response->json();
+            if ($response->successful() && is_array($json) && isset($json[0]['q'], $json[0]['a'])) {
+                $quote = $json[0]['q'];
+                $author = $json[0]['a'];
             }
         } catch (\Exception $e) {
-            Log::error('Gagal mengambil kutipan.', [
-                'url' => 'https://api.quotable.io/random',
+            Log::error('Gagal mengambil kutipan motivasi.', [
+                'url' => 'https://zenquotes.io/api/random',
                 'message' => $e->getMessage(),
                 'user_id' => $user->id ?? null,
                 'trace' => $e->getTraceAsString()
             ]);
         }
+
 
         return view('admin.dashboard', [
             'title'        => 'Beranda | TODO',
