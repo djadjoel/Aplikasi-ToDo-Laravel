@@ -27,16 +27,18 @@ class DashboardController extends Controller
 
         // Ambil kutipan motivasi
         try {
-            $response = Http::withOptions(['verify' => false])
-                            ->get('https://api.quotable.io/random');
+            $response = Http::get('https://zenquotes.io/api/random');
             if ($response->successful()) {
-                $quote = $response['content'];
-                $author = $response['author'];
+                $quoteData = $response->json()[0];
+                $quote = $quoteData['q'];
+                $author = $quoteData['a'];
             }
         } catch (\Exception $e) {
             Log::error('Gagal mengambil kutipan.', [
+                'url' => 'https://api.quotable.io/random',
+                'message' => $e->getMessage(),
                 'user_id' => $user->id ?? null,
-                'exception' => $e
+                'trace' => $e->getTraceAsString()
             ]);
         }
 
