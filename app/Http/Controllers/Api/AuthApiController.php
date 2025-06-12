@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class AuthapiController extends Controller
+class AuthApiController extends Controller
 {
     public function login(Request $request)
     {

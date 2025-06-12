@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Publik\BerandaController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Api\AuthapiController;
+use App\Http\Controllers\Api\AuthApiController;
 use App\Http\Controllers\Api\TodoController;
 
 // Login backend
