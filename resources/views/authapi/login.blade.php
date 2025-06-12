@@ -11,7 +11,7 @@
         <input id="email" class="form-control" placeholder="Email">
     </div>
     <div class="mb-3">
-        <input id="password" type="password" class="form-control" placeholder="Password">
+        <input id="password" type="password" class="form-control" placeholder="Password" autocomplete="current-password">
     </div>
     <button onclick="login()" class="btn btn-primary">Login</button>
     <p id="error" class="text-danger mt-3"></p>
