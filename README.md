@@ -1,9 +1,10 @@
-# 📋 Laravel To-Do App
+# 📋 Laravel To-Do App by djadjoel Mindset is DOA
 
 Aplikasi manajemen tugas (To-Do List) berbasis Laravel dengan autentikasi pengguna, verifikasi email, dashboard admin, dan RESTful API. Dibangun menggunakan Laravel 12, Bootstrap 5.3, dan Axios.
 
 ## Demo
-https://aplikasi-todo-laravel-production.up.railway.app/login
+- https://aplikasi-todo-laravel-production.up.railway.app/login
+- Demo bisa diakses 30 hari sejak 12-06-2025
 
 ## Data login
 - Username: test@example.com
