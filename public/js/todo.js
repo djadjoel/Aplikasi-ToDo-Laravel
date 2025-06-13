@@ -13,41 +13,6 @@ function loadTodos() {
     .then(res => {
       const list = document.getElementById('todoList');
       list.innerHTML = '';
-      // res.data.tasks.forEach(todo => {
-      //   const item = document.createElement('li');
-      //   item.className = 'list-group-item d-flex justify-content-between align-items-center';
-
-      //   const div = document.createElement('div');
-
-      //   const checkbox = document.createElement('input');
-      //   checkbox.type = 'checkbox';
-      //   checkbox.checked = todo.is_done === 'done'; // ✅ enum aware
-      //   checkbox.addEventListener('change', () => {
-      //     const newStatus = todo.is_done === 'done' ? 'undone' : 'done';
-      //     toggleTodo(todo.id, newStatus);
-      //   });
-
-      //   checkbox.addEventListener('change', () => {
-      //     const newStatus = checkbox.checked ? 'done' : 'undone'; // ✅ enum aware
-      //     toggleTodo(todo.id, newStatus);
-      //   });
-
-      //   const span = document.createElement('span');
-      //   span.textContent = todo.judul || '[Tanpa Judul]';
-      //   if (todo.is_done === 'done') span.classList.add('text-decoration-line-through'); // ✅ enum aware
-
-      //   div.appendChild(checkbox);
-      //   div.appendChild(span);
-
-      //   const btn = document.createElement('button');
-      //   btn.className = 'btn btn-sm btn-danger';
-      //   btn.textContent = 'Hapus';
-      //   btn.addEventListener('click', () => deleteTodo(todo.id));
-
-      //   item.appendChild(div);
-      //   item.appendChild(btn);
-      //   list.appendChild(item);
-      // });
       res.data.tasks.forEach(todo => {
         const item = document.createElement('li');
         item.className = 'list-group-item d-flex justify-content-between flex-wrap align-items-center';
@@ -190,10 +155,6 @@ function deleteTodo(id) {
     }
   });
 }
-
-
-
-
 
 function logout() {
   localStorage.removeItem('token');

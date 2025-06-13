@@ -51,19 +51,24 @@ class TodoController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    
-    $request->validate([
-        'is_done' => 'required|in:done,undone',
-    ]);
+    {
+        // Validasi input yang bisa diedit
+        $request->validate([
+            'judul'     => 'nullable|string|max:255',
+            'is_done'   => 'nullable|in:done,undone',
+        ]);
 
-    $task = Todo::where('user_id', auth()->id())->findOrFail($id);
-    $task->update(['is_done' => $request->is_done]);
+        // Ambil task milik user
+        $task = Todo::where('user_id', Auth::id())->findOrFail($id);
 
-    return response()->json(['message' => 'Berhasil']);
-}
+        // Update hanya field yang dikirim
+        $task->update($request->only(['judul', 'is_done']));
 
-
+        return response()->json([
+            'message' => 'Task berhasil diperbarui.',
+            'data'    => $task,
+        ]);
+    }
 
     public function destroy($id)
     {

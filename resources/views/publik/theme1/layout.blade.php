@@ -9,6 +9,7 @@
     <link rel="canonical" href="{{ url()->current() }}">
     <script src="{{ secure_asset('plugins/bootstrap533/color-modes.js') }}"></script>
     <link href="{{ secure_asset('plugins/bootstrap533/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('plugins/bootstrap-icons/font/bootstrap-icons.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
     <link href="{{ secure_asset('templates/blog/css/blog.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('templates/blog/css/custom.css') }}" rel="stylesheet">
