@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VerifyEmail;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -88,12 +89,10 @@ class AuthController extends Controller
             'role'   => 'admin', // default
         ]);
 
-        if (Auth::check() && is_null(Auth::user()->email_verified_at)) {
-            Auth::logout();
-            return redirect('/email/verify')->withErrors([
-                'email' => 'Email Anda belum diverifikasi.',
-            ]);
-        }
+        event(new Registered($user));
+
+        Auth::login($user);
+        return redirect()->intended('/default/email/verify');
     }
     public function logout(Request $request)
     {
