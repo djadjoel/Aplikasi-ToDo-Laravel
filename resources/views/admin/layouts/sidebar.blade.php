@@ -28,6 +28,7 @@
             }
             function renderMenuItems($moduls, $level = 1)
             {
+            dd($moduls->toArray());
                 foreach ($moduls as $modul) {
                     $urlm = url($modul->url);
                     $active = isActive($modul) ? 'mm-active' : '';
@@ -51,7 +52,7 @@
             @endphp
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Menu Dashboard</li>
-                @php renderMenuItems($dashboardModuls->whereNull('parent_id')); @endphp
+                @php renderMenuItems($dashboardModuls->filter(fn($m) => is_null($m->parent_id))); @endphp
             </ul>
         </div>
     </div>
