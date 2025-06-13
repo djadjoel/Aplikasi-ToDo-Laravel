@@ -88,7 +88,7 @@ class AuthController extends Controller
             'role'   => 'admin', // default
         ]);
 
-        if (is_null(Auth::user()->email_verified_at)) {
+        if (Auth::check() && is_null(Auth::user()->email_verified_at)) {
             Auth::logout();
             return redirect('/email/verify')->withErrors([
                 'email' => 'Email Anda belum diverifikasi.',
