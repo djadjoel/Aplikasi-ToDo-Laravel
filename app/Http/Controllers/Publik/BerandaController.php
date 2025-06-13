@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\ManajemenTask as Todo;
+use Illuminate\Support\Facades\Log;
 
 class BerandaController extends Controller
 {
@@ -19,15 +20,19 @@ class BerandaController extends Controller
         $author = '';
 
         try {
-            $response = Http::withOptions(['verify' => false])
-                            ->get('https://api.quotable.io/random');
-
-            if ($response->successful()) {
-                $quote = $response['content'];
-                $author = $response['author'];
+            $response = Http::get('https://zenquotes.io/api/random');
+            $json = $response->json();
+            if ($response->successful() && is_array($json) && isset($json[0]['q'], $json[0]['a'])) {
+                $quote = $json[0]['q'];
+                $author = $json[0]['a'];
             }
         } catch (\Exception $e) {
-            // log error kalau perlu
+            Log::error('Gagal mengambil kutipan motivasi.', [
+                'url' => 'https://zenquotes.io/api/random',
+                'message' => $e->getMessage(),
+                'user_id' => $user->id ?? null,
+                'trace' => $e->getTraceAsString()
+            ]);
         }
 
         return view('publik.theme1.beranda.beranda', [

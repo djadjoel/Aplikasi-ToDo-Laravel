@@ -129,31 +129,5 @@
             </div>
         </div>
     </div>
-    
 @endsection
-
-<!-- DataTables-->
-<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $('#tasks-table').DataTable({
-            language: {
-                search: "Cari:",
-                lengthMenu: "Tampilkan _MENU_ entri",
-                info: "Menampilkan _START_ - _END_ dari _TOTAL_ tugas",
-                paginate: {
-                    previous: "Sebelumnya",
-                    next: "Berikutnya"
-                },
-                zeroRecords: "Tidak ada tugas ditemukan"
-            },
-            responsive: true
-        });
-    });
-</script>
-
 
