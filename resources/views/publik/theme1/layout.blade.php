@@ -24,6 +24,15 @@
             from { width: 100%; }
             to { width: 0%; }
         }
+        .list-group-item {
+          flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+          .list-group-item {
+            flex-direction: row;
+          }
+        }
     </style>
   </head>
   <body>

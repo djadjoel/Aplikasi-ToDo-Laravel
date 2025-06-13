@@ -13,45 +13,89 @@ function loadTodos() {
     .then(res => {
       const list = document.getElementById('todoList');
       list.innerHTML = '';
+      // res.data.tasks.forEach(todo => {
+      //   const item = document.createElement('li');
+      //   item.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+      //   const div = document.createElement('div');
+
+      //   const checkbox = document.createElement('input');
+      //   checkbox.type = 'checkbox';
+      //   checkbox.checked = todo.is_done === 'done'; // ✅ enum aware
+      //   checkbox.addEventListener('change', () => {
+      //     const newStatus = todo.is_done === 'done' ? 'undone' : 'done';
+      //     toggleTodo(todo.id, newStatus);
+      //   });
+
+      //   checkbox.addEventListener('change', () => {
+      //     const newStatus = checkbox.checked ? 'done' : 'undone'; // ✅ enum aware
+      //     toggleTodo(todo.id, newStatus);
+      //   });
+
+      //   const span = document.createElement('span');
+      //   span.textContent = todo.judul || '[Tanpa Judul]';
+      //   if (todo.is_done === 'done') span.classList.add('text-decoration-line-through'); // ✅ enum aware
+
+      //   div.appendChild(checkbox);
+      //   div.appendChild(span);
+
+      //   const btn = document.createElement('button');
+      //   btn.className = 'btn btn-sm btn-danger';
+      //   btn.textContent = 'Hapus';
+      //   btn.addEventListener('click', () => deleteTodo(todo.id));
+
+      //   item.appendChild(div);
+      //   item.appendChild(btn);
+      //   list.appendChild(item);
+      // });
       res.data.tasks.forEach(todo => {
         const item = document.createElement('li');
-        item.className = 'list-group-item d-flex justify-content-between align-items-center';
+        item.className = 'list-group-item d-flex justify-content-between flex-wrap align-items-center';
 
         const div = document.createElement('div');
+        div.className = 'd-flex align-items-center gap-2';
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.checked = todo.is_done === 'done'; // ✅ enum aware
+        checkbox.checked = todo.is_done === 'done';
         checkbox.addEventListener('change', () => {
-          const newStatus = todo.is_done === 'done' ? 'undone' : 'done';
-          toggleTodo(todo.id, newStatus);
-        });
-
-        checkbox.addEventListener('change', () => {
-          const newStatus = checkbox.checked ? 'done' : 'undone'; // ✅ enum aware
+          const newStatus = checkbox.checked ? 'done' : 'undone';
           toggleTodo(todo.id, newStatus);
         });
 
         const span = document.createElement('span');
         span.textContent = todo.judul || '[Tanpa Judul]';
-        if (todo.is_done === 'done') span.classList.add('text-decoration-line-through'); // ✅ enum aware
+        if (todo.is_done === 'done') span.classList.add('text-decoration-line-through');
 
         div.appendChild(checkbox);
         div.appendChild(span);
 
-        const btn = document.createElement('button');
-        btn.className = 'btn btn-sm btn-danger';
-        btn.textContent = 'Hapus';
-        btn.addEventListener('click', () => deleteTodo(todo.id));
+        const editBtn = document.createElement('button');
+        editBtn.className = 'btn btn-sm btn-outline-warning';
+        editBtn.innerHTML = '<i class="bi bi-pencil"></i>';
+        editBtn.setAttribute('title', 'Edit');
+        editBtn.addEventListener('click', () => editTodo(todo));
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'btn btn-sm btn-outline-danger';
+        deleteBtn.innerHTML = '<i class="bi bi-trash"></i>';
+        deleteBtn.setAttribute('title', 'Hapus');
+        deleteBtn.addEventListener('click', () => deleteTodo(todo.id));
+
+        const btnGroup = document.createElement('div');
+        btnGroup.className = 'd-flex gap-2 mt-2 mt-md-0'; // responsive gap + spacing
+        btnGroup.appendChild(editBtn);
+        btnGroup.appendChild(deleteBtn);
 
         item.appendChild(div);
-        item.appendChild(btn);
+        item.appendChild(btnGroup);
         list.appendChild(item);
       });
+
     })
     .catch(err => {
       console.error('Gagal memuat todos:', err);
-      alert('Gagal memuat daftar tugas nih.');
+      alert('Gagal memuat daftar tugas nih. Login dulu ya.');
     });
 }
 
@@ -122,9 +166,6 @@ function toggleTodo(id, newStatus) {
     });
 }
 
-
-
-
 function deleteTodo(id) {
   Swal.fire({
     title: 'Hapus tugas ini?',
@@ -168,6 +209,37 @@ function showToast(message, type = 'primary') {
 
   const bsToast = new bootstrap.Toast(toastEl, { delay: 2000 });
   bsToast.show();
+}
+
+function editTodo(todo) {
+  Swal.fire({
+    title: 'Edit Tugas',
+    input: 'text',
+    inputValue: todo.judul,
+    showCancelButton: true,
+    confirmButtonText: 'Simpan',
+    cancelButtonText: 'Batal',
+    inputValidator: (value) => {
+      if (!value) return 'Judul tidak boleh kosong!';
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const newTitle = result.value.trim();
+      if (newTitle === todo.judul) return; // Tidak berubah
+
+      showToast('Menyimpan perubahan...');
+
+      axios.put(BASE_API + `/api/beranda/${todo.id}`, { judul: newTitle }, authHeader)
+        .then(() => {
+          loadTodos();
+          showToast('Tugas berhasil diupdate!', 'success');
+        })
+        .catch(err => {
+          console.error(err);
+          showToast('Gagal memperbarui tugas!', 'danger');
+        });
+    }
+  });
 }
 
 
