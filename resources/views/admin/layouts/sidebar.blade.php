@@ -28,7 +28,6 @@
             }
             function renderMenuItems($moduls, $level = 1)
             {
-            dd($moduls->toArray());
                 foreach ($moduls as $modul) {
                     $urlm = url($modul->url);
                     $active = isActive($modul) ? 'mm-active' : '';
